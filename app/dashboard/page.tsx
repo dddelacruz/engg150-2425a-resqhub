@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ChartComponent from "./ChartComponent";
 
 import { getCumulativeCount } from "../firebase";
-import { TableData, DataPoint } from "../types";
+import { DataPoint } from "../types";
 
 export default function Dashboard() {
   const [data, setData] = useState<DataPoint[]>([]);

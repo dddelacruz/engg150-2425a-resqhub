@@ -5,6 +5,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  addDoc,
   getFirestore,
   query,
   where,
@@ -81,4 +82,24 @@ export async function getCumulativeCount(now: Date): Promise<number> {
     }
   }
   return count;
+}
+
+// Add new user
+export async function addUser(user: UserData) {
+  try {
+    const docRef = await addDoc(collection(db, "users"), {
+      fName: user.fName,
+      mName: user.mName,
+      lName: user.lName,
+      DOB: user.DOB,
+      sex: user.sex
+    });
+    console.log("Document added with ID: ", docRef.id);
+
+    return docRef.id;
+  } catch(error) {
+    console.error("Error adding document ", error);
+
+    return null;
+  }
 }
