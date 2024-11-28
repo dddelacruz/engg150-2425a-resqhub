@@ -17,7 +17,7 @@ export default function Dashboard() {
         const hourFormatted = ('0' + hour + ":00").slice(-5);
       
         const now = new Date();
-        const currentHour = now.getHours();
+        const currentHour = now.getHours() + 1;
         
         if (hour > currentHour) {
           chartData.push(
