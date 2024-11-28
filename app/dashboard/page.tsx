@@ -14,10 +14,10 @@ export default function Dashboard() {
       const chartData = [];
 
       for (let hour = 0; hour < 24; hour++) {
-        let hourFormatted = ('0' + hour + ":00").slice(-5);
+        const hourFormatted = ('0' + hour + ":00").slice(-5);
       
-        let now = new Date();
-        let currentHour = now.getHours();
+        const now = new Date();
+        const currentHour = now.getHours();
         
         if (hour > currentHour) {
           chartData.push(
@@ -28,7 +28,7 @@ export default function Dashboard() {
           )
         } else {
           now.setHours(hour, 0, 0, 0);
-          let count = await getCumulativeCount(now);
+          const count = await getCumulativeCount(now);
           chartData.push(
             {
               hour: hourFormatted,
