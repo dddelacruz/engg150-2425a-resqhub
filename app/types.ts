@@ -13,3 +13,8 @@ export type UserData = {
   DOB: Timestamp;
   sex: string;
 };
+
+export type DataPoint = {
+  hour: string;
+  people: number | null;
+}
